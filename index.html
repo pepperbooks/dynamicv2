@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pepper Books</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WBCFQFHS');</script>
+<!-- End Google Tag Manager -->
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBCFQFHS"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+  <!-- Header -->
+  <header>
+    <div class="container header-flex">
+      <div class="logo">
+        <h1><a href="index.html">Pepper Books</a></h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#categories">Categories</a></li>
+          <li><a href="#books">Books</a></li>
+          <li><a href="#footer">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="cart-icon" id="cart-icon">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Discover Your Next Favorite Book</h2>
+      <p>Wide range of Academic Books, Comics, Genric Books, Books for Kids, Language Books & Novels</p>
+      <a href="#books" class="btn-primary">Browse Books</a>
+    </div>
+  </section>
+
+  <!-- Categories – updated href to point to specific category section -->
+  <section id="categories" class="categories section-padding">
+    <div class="container">
+      <h2 class="section-title">Explore Categories</h2>
+      <div class="categories-grid">
+         <a href="#category-academic" class="category-card">
+          <div class="category-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Academic & Reference</h3>
+        </a>
+        <a href="#category-comic" class="category-card">
+          <div class="category-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Comics</h3>
+        </a>
+        <a href="#category-genric" class="category-card">
+          <div class="category-icon"><i class="fas fa-brain"></i></div>
+          <h3>Genric Books</h3>
+        </a>
+        <a href="#category-kids" class="category-card">
+          <div class="category-icon"><i class="fas fa-child"></i></div>
+          <h3>Books for Kids</h3>
+        </a>
+        <a href="#category-language" class="category-card">
+          <div class="category-icon"><i class="fas fa-language"></i></div>
+          <h3>Language Books</h3>
+        </a>
+        <a href="#category-novel" class="category-card">
+          <div class="category-icon"><i class="fas fa-book-reader"></i></div>
+          <h3>Novels</h3>
+        </a>
+        
+       
+      </div>
+    </div>
+  </section>
+
+  <!-- Books by Category -->
+  <section id="books" class="books section-padding">
+    <div class="container">
+ <!-- Academic & Reference -->
+      <h2 class="section-title" id="category-academic">Academic & Reference Books</h2>
+      <div class="books-grid">
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/2c3e50/ffffff?text=Oxford+Dictionary" alt="Oxford Dictionary">
+          <div class="book-info">
+            <h3>Oxford English Dictionary</h3>
+            <p class="author">Oxford University Press</p>
+            <p class="price">₹ 799</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ar1" data-title="Oxford English Dictionary" data-price="799">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/e74c3c/ffffff?text=NCERT+Class+12+Physics" alt="NCERT Class 12 Physics">
+          <div class="book-info">
+            <h3>NCERT Physics Class 12</h3>
+            <p class="author">NCERT</p>
+            <p class="price">₹ 220</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ar2" data-title="NCERT Physics Class 12" data-price="220">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/27ae60/ffffff?text=Indian+Polity" alt="Indian Polity">
+          <div class="book-info">
+            <h3>Indian Polity</h3>
+            <p class="author">M. Laxmikanth</p>
+            <p class="price">₹ 699</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ar3" data-title="Indian Polity" data-price="699">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/3498db/ffffff?text=Certificate+Physical+Geography" alt="Certificate Physical Geography">
+          <div class="book-info">
+            <h3>Certificate Physical and Human Geography</h3>
+            <p class="author">Goh Cheng Leong</p>
+            <p class="price">₹ 399</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ar4" data-title="Certificate Physical and Human Geography" data-price="399">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Comic -->
+      <h2 class="section-title" id="category-comic">Comics</h2>
+      <div class="books-grid">
+        <div class="book-card">
+          <img src="https://productimages--aps1-az1--x-s3d1434-dev.s3.ap-south-1.amazonaws.com/books/novels/Shiva-My-Postmodern-Ishta.jpg" alt="The Great Gatsby">
+          <div class="book-info">
+            <h3>The Great Gatsby</h3>
+            <p class="author">F. Scott Fitzgerald</p>
+            <p class="price">₹ 249</p>
+            <button class="btn-whatsapp add-to-cart" data-id="f1" data-title="The Great Gatsby" data-price="249">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/e74c3c/ffffff?text=1984" alt="1984">
+          <div class="book-info">
+            <h3>1984</h3>
+            <p class="author">George Orwell</p>
+            <p class="price">₹ 279</p>
+            <button class="btn-whatsapp add-to-cart" data-id="f2" data-title="1984" data-price="279">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/27ae60/ffffff?text=To+Kill+a+Mockingbird" alt="To Kill a Mockingbird">
+          <div class="book-info">
+            <h3>To Kill a Mockingbird</h3>
+            <p class="author">Harper Lee</p>
+            <p class="price">₹ 299</p>
+            <button class="btn-whatsapp add-to-cart" data-id="f3" data-title="To Kill a Mockingbird" data-price="299">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/3498db/ffffff?text=Pride+and+Prejudice" alt="Pride and Prejudice">
+          <div class="book-info">
+            <h3>Pride and Prejudice</h3>
+            <p class="author">Jane Austen</p>
+            <p class="price">₹ 259</p>
+            <button class="btn-whatsapp add-to-cart" data-id="f4" data-title="Pride and Prejudice" data-price="259">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Genric -->
+      <h2 class="section-title" id="category-genric">Genric Books</h2>
+      <div class="books-grid">
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/9b59b6/ffffff?text=Sapiens" alt="Sapiens">
+          <div class="book-info">
+            <h3>Sapiens</h3>
+            <p class="author">Yuval Noah Harari</p>
+            <p class="price">₹ 499</p>
+            <button class="btn-whatsapp add-to-cart" data-id="nf1" data-title="Sapiens" data-price="499">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/f39c12/ffffff?text=The+Body" alt="The Body">
+          <div class="book-info">
+            <h3>The Body</h3>
+            <p class="author">Bill Bryson</p>
+            <p class="price">₹ 399</p>
+            <button class="btn-whatsapp add-to-cart" data-id="nf2" data-title="The Body" data-price="399">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/e67e22/ffffff?text=Educated" alt="Educated">
+          <div class="book-info">
+            <h3>Educated</h3>
+            <p class="author">Tara Westover</p>
+            <p class="price">₹ 349</p>
+            <button class="btn-whatsapp add-to-cart" data-id="nf3" data-title="Educated" data-price="349">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/16a085/ffffff?text=Becoming" alt="Becoming">
+          <div class="book-info">
+            <h3>Becoming</h3>
+            <p class="author">Michelle Obama</p>
+            <p class="price">₹ 449</p>
+            <button class="btn-whatsapp add-to-cart" data-id="nf4" data-title="Becoming" data-price="449">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Books for Kids -->
+      <h2 class="section-title" id="category-kids">Books for Kids</h2>
+      <div class="books-grid">
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/2980b9/ffffff?text=Atomic+Habits" alt="Atomic Habits">
+          <div class="book-info">
+            <h3>Atomic Habits</h3>
+            <p class="author">James Clear</p>
+            <p class="price">₹ 399</p>
+            <button class="btn-whatsapp add-to-cart" data-id="sh1" data-title="Atomic Habits" data-price="399">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/c0392b/ffffff?text=The+Power+of+Now" alt="The Power of Now">
+          <div class="book-info">
+            <h3>The Power of Now</h3>
+            <p class="author">Eckhart Tolle</p>
+            <p class="price">₹ 329</p>
+            <button class="btn-whatsapp add-to-cart" data-id="sh2" data-title="The Power of Now" data-price="329">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/8e44ad/ffffff?text=How+to+Win+Friends" alt="How to Win Friends">
+          <div class="book-info">
+            <h3>How to Win Friends & Influence People</h3>
+            <p class="author">Dale Carnegie</p>
+            <p class="price">₹ 329</p>
+            <button class="btn-whatsapp add-to-cart" data-id="sh3" data-title="How to Win Friends & Influence People" data-price="329">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/27ae60/ffffff?text=Think+and+Grow+Rich" alt="Think and Grow Rich">
+          <div class="book-info">
+            <h3>Think and Grow Rich</h3>
+            <p class="author">Napoleon Hill</p>
+            <p class="price">₹ 299</p>
+            <button class="btn-whatsapp add-to-cart" data-id="sh4" data-title="Think and Grow Rich" data-price="299">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- language books -->
+      <h2 class="section-title" id="category-language">Language Books</h2>
+      <div class="books-grid">
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/3498db/ffffff?text=Quantitative+Aptitude" alt="Quantitative Aptitude">
+          <div class="book-info">
+            <h3>Quantitative Aptitude</h3>
+            <p class="author">R.S. Aggarwal</p>
+            <p class="price">₹ 599</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ce1" data-title="Quantitative Aptitude" data-price="599">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/9b59b6/ffffff?text=Objective+General+English" alt="Objective General English">
+          <div class="book-info">
+            <h3>Objective General English</h3>
+            <p class="author">S.P. Bakshi</p>
+            <p class="price">₹ 450</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ce2" data-title="Objective General English" data-price="450">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/f39c12/ffffff?text=Lucent+General+Knowledge" alt="Lucent General Knowledge">
+          <div class="book-info">
+            <h3>Lucent General Knowledge</h3>
+            <p class="author">Lucent Publication</p>
+            <p class="price">₹ 299</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ce3" data-title="Lucent General Knowledge" data-price="299">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/e67e22/ffffff?text=Manorama+Yearbook" alt="Manorama Yearbook">
+          <div class="book-info">
+            <h3>Manorama Yearbook 2025</h3>
+            <p class="author">The Malayala Manorama</p>
+            <p class="price">₹ 349</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ce4" data-title="Manorama Yearbook 2025" data-price="349">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Novels -->
+      <h2 class="section-title" id="category-novel">Novels</h2>
+      <div class="books-grid">
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/16a085/ffffff?text=Harry+Potter+1" alt="Harry Potter and the Philosopher's Stone">
+          <div class="book-info">
+            <h3>Harry Potter and the Philosopher's Stone</h3>
+            <p class="author">J.K. Rowling</p>
+            <p class="price">₹ 399</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ch1" data-title="Harry Potter and the Philosopher's Stone" data-price="399">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/2980b9/ffffff?text=The+Very+Hungry+Caterpillar" alt="The Very Hungry Caterpillar">
+          <div class="book-info">
+            <h3>The Very Hungry Caterpillar</h3>
+            <p class="author">Eric Carle</p>
+            <p class="price">₹ 199</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ch2" data-title="The Very Hungry Caterpillar" data-price="199">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/c0392b/ffffff?text=Where+the+Wild+Things+Are" alt="Where the Wild Things Are">
+          <div class="book-info">
+            <h3>Where the Wild Things Are</h3>
+            <p class="author">Maurice Sendak</p>
+            <p class="price">₹ 249</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ch3" data-title="Where the Wild Things Are" data-price="249">Add to Cart</button>
+          </div>
+        </div>
+        <div class="book-card">
+          <img src="https://via.placeholder.com/240x360/8e44ad/ffffff?text=The+Gruffalo" alt="The Gruffalo">
+          <div class="book-info">
+            <h3>The Gruffalo</h3>
+            <p class="author">Julia Donaldson</p>
+            <p class="price">₹ 229</p>
+            <button class="btn-whatsapp add-to-cart" data-id="ch4" data-title="The Gruffalo" data-price="229">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+     
+    </div>
+  </section>
+
+  <!-- Cart Modal -->
+<div id="cart-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:999; align-items:center; justify-content:center;">
+  <div style="background:white; padding:2rem; border-radius:12px; width:90%; max-width:520px; max-height:85vh; overflow-y:auto; position:relative;">
+    
+    <button onclick="document.getElementById('cart-modal').style.display='none'" 
+            style="position:absolute; top:12px; right:16px; background:none; border:none; font-size:1.8rem; color:#777; cursor:pointer;">
+      ×
+    </button>
+
+    <h2 style="margin:0 0 1.5rem 0; text-align:center;">Your Cart</h2>
+
+    <div id="cart-items-list" style="margin:1.5rem 0; min-height:80px;"></div>
+
+    <div style="font-weight:bold; text-align:right; font-size:1.35rem; margin:1.2rem 0; border-top:1px solid #eee; padding-top:1rem;">
+      Total: ₹<span id="cart-total">0</span>
+    </div>
+
+    <h3 style="margin:1.5rem 0 1rem 0;">Delivery Details</h3>
+    <input type="text" id="customer-name" placeholder="Your Name *" required 
+           style="width:100%; padding:0.9rem; margin:0.6rem 0; border:1px solid #ccc; border-radius:6px; font-size:1rem;">
+    <textarea id="customer-address" placeholder="Full Delivery Address (Delhi NCR) *" rows="3" required
+              style="width:100%; padding:0.9rem; margin:0.6rem 0; border:1px solid #ccc; border-radius:6px; font-size:1rem; resize:vertical;"></textarea>
+
+    <button id="send-whatsapp" 
+            style="background:#25D366; color:white; border:none; padding:1rem; font-size:1.1rem; font-weight:600; width:100%; border-radius:8px; cursor:pointer; margin:1.5rem 0 0.8rem 0;">
+      Send Order via WhatsApp
+    </button>
+
+    <button id="clear-cart-btn" 
+            style="background:#e74c3c; color:white; border:none; padding:0.9rem; font-size:1rem; width:100%; border-radius:8px; cursor:pointer; display:none;">
+      Clear All Items
+    </button>
+
+  </div>
+</div>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <h3>Pepper Books</h3>
+        <p>Welcome to Pepper Books, your premier online destination for academic and non-academic titles.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>About Us</h3>
+        
+
+<p>We believe finding the right book should be easy and accessible. From specialized university textbooks to the latest trending novels, our collection is carefully curated for students, professionals, and book lovers alike.
+</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Contact</h3>
+        <p><i class="fas fa-envelope"></i>pepperbook@yahoo.com</p>
+       <p><i class="fas fa-map-marker-alt"></i> Palika Bazar, Connaught Place, New Delhi - 110001</p>
+      </div>
+
+      <div class="footer-col">
+  <h3>Categories</h3>
+  <ul>
+    <li><a href="#category-academic">Academic Books</a></li>
+    <li><a href="#category-comic">Comics</a></li>
+    <li><a href="#category-genric">Genric Books</a></li>
+    <li><a href="#category-kids">Books for Kids</a></li>
+    <li><a href="#category-language">Language Books</a></li>
+    <li><a href="#category-novel">Novels</a></li>
+  </ul>
+</div>
+    </div>
+
+    <div class="copyright">
+      <p>© 2026 Pepper Books. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
