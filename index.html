@@ -19,13 +19,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WBCFQFHS"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-  <!-- Header -->
-  <header>
-    <div class="container header-flex">
-      <div class="logo">
-        <h1><a href="index.html">Pepper Books</a></h1>
-      </div>
-      <nav>
+ 
+<header>
+  <div class="header-container">
+    <!-- Logo – always left -->
+    <div class="logo">
+      <h1><a href="index.html">Pepper Books</a></h1>
+    </div>
+
+    <!-- Desktop navigation + cart -->
+    <div class="desktop-controls">
+      <nav class="desktop-nav">
         <ul>
           <li><a href="#categories">Categories</a></li>
           <li><a href="#books">Books</a></li>
@@ -37,7 +41,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <span class="cart-count" id="cart-count">0</span>
       </div>
     </div>
-  </header>
+
+    <!-- Mobile: cart + hamburger (right side) -->
+    <div class="mobile-controls">
+      <div class="cart-icon" id="cart-icon-mobile">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count-mobile">0</span>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile menu overlay -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav>
+      <ul>
+        <li><a href="#categories">Categories</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#footer">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
   <!-- Hero Banner -->
   <section class="hero">
@@ -90,7 +119,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2 class="section-title" id="category-academic">Academic & Reference Books</h2>
       <div class="books-grid">
         <div class="book-card">
-          <img src="https://via.placeholder.com/240x360/2c3e50/ffffff?text=Oxford+Dictionary" alt="Oxford Dictionary">
+          <img src="https://productimages--aps1-az1--x-s3d1434-dev.s3.ap-south-1.amazonaws.com/books/academic-books/100-write-and-learn-signt-word-practice-pages-gr-k-2.jpg" alt="Oxford Dictionary">
           <div class="book-info">
             <h3>Oxford English Dictionary</h3>
             <p class="author">Oxford University Press</p>
@@ -99,7 +128,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="book-card">
-          <img src="https://via.placeholder.com/240x360/e74c3c/ffffff?text=NCERT+Class+12+Physics" alt="NCERT Class 12 Physics">
+          <img src="https://productimages--aps1-az1--x-s3d1434-dev.s3.ap-south-1.amazonaws.com/books/academic-books/alpha-grammar-composition-1.jpg" alt="NCERT Class 12 Physics">
           <div class="book-info">
             <h3>NCERT Physics Class 12</h3>
             <p class="author">NCERT</p>
@@ -108,7 +137,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="book-card">
-          <img src="https://via.placeholder.com/240x360/27ae60/ffffff?text=Indian+Polity" alt="Indian Polity">
+          <img src="https://productimages--aps1-az1--x-s3d1434-dev.s3.ap-south-1.amazonaws.com/books/academic-books/encyclopedia-of-general-science-for-general-competions.jpg" alt="Indian Polity">
           <div class="book-info">
             <h3>Indian Polity</h3>
             <p class="author">M. Laxmikanth</p>
@@ -117,7 +146,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </div>
         </div>
         <div class="book-card">
-          <img src="https://via.placeholder.com/240x360/3498db/ffffff?text=Certificate+Physical+Geography" alt="Certificate Physical Geography">
+          <img src="https://productimages--aps1-az1--x-s3d1434-dev.s3.ap-south-1.amazonaws.com/books/academic-books/grammar-for-grown-ups.jpg" alt="Certificate Physical Geography">
           <div class="book-info">
             <h3>Certificate Physical and Human Geography</h3>
             <p class="author">Goh Cheng Leong</p>
@@ -337,7 +366,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <!-- Cart Modal -->
-<div id="cart-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:999; align-items:center; justify-content:center;">
+<div id="cart-modal" class="modal" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:1500; align-items:center; justify-content:center;">
   <div style="background:white; padding:2rem; border-radius:12px; width:90%; max-width:520px; max-height:85vh; overflow-y:auto; position:relative;">
     
     <button onclick="document.getElementById('cart-modal').style.display='none'" 
