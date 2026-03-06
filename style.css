@@ -60,10 +60,11 @@ body {
 
 /* Section padding & titles */
 .section-padding {
-  padding: 5rem 0;
+  padding: 1rem 0;
 }
 
-.books .section-title {
+
+.section-title {
   position: relative;
   padding-top: 1.5rem;
   margin-top: 4rem;               /* extra space before each new section */
@@ -127,8 +128,12 @@ body {
 
 .book-card img {
   width: 100%;
-  height: 320px;
-  object-fit: cover;
+  height: 320px;               /* ← choose height that looks good for your layout */
+  object-fit: contain;         /* ← keeps original aspect ratio, no stretching */
+  object-position: center;
+  background: #f8f9fa;         /* light gray background for books with white edges */
+  padding: 10px;               /* optional: small inner padding so cover doesn't touch edges */
+  box-sizing: border-box;
 }
 
 .book-info {
