@@ -393,7 +393,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h3 style="margin:1.5rem 0 1rem 0;">Delivery Details</h3>
     <input type="text" id="customer-name" placeholder="Your Name *" required 
            style="width:100%; padding:0.9rem; margin:0.6rem 0; border:1px solid #ccc; border-radius:6px; font-size:1rem;">
-    <textarea id="customer-address" placeholder="Full Delivery Address (Delhi NCR) *" rows="3" required
+           <input type="tel" id="contact-number" placeholder="10-digit Mobile Number *" 
+       pattern="[0-9]{10}" maxlength="10" required
+       style="width:100%; padding:0.9rem; margin:0.6rem 0; border:1px solid #ccc; border-radius:6px; font-size:1rem;">
+    <textarea id="customer-address" placeholder="Full Delivery Address *" rows="3" required
               style="width:100%; padding:0.9rem; margin:0.6rem 0; border:1px solid #ccc; border-radius:6px; font-size:1rem; resize:vertical;"></textarea>
 
     <button id="send-whatsapp" 

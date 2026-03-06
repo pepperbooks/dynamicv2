@@ -176,15 +176,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const name = document.getElementById('customer-name')?.value.trim();
+    const contactnumber = document.getElementById('contact-number')?.value.trim();
     const address = document.getElementById('customer-address')?.value.trim();
 
-    if (!name || !address) {
-      alert('Please enter your name and delivery address.');
-      return;
-    }
+   // Validation – now checks all 3 fields
+  if (!name || !contactnumber || !address) {
+    alert('Please fill in your name, 10-digit contact number, and delivery address.');
+    return;
+  }
 
     let message = `Hello! I'd like to place an order:\n\n`;
     message += `Name: ${name}\n`;
+    message += `Contact us: ${contactnumber}\n`;
     message += `Address: ${address}\n\n`;
     message += `Order (after 10% discount):\n`;
 
@@ -205,7 +208,8 @@ document.addEventListener('DOMContentLoaded', () => {
     message += `\nSubtotal (after discount): ₹${Math.round(subtotalAfterDiscount)}`;
     message += `\nDelivery charges: ₹${DELIVERY_CHARGE}`;
     message += `\nTotal to pay: ₹${Math.round(finalTotal)}`;
-    message += `\n\nPlease confirm availability. Thank you! 😊`;
+    message += `\n\nPlease confirm your order and payment details so we can dispatch your order soon. Thank you! 😊`;
+message += `\nWe will share dispatch & tracking details on your contact number: ${contactnumber} once payment is received.`;
 
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${whatsappNumber}?text=${encoded}`, '_blank');
