@@ -1,11 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   const whatsappNumber = "919920869482";
 
+  // ────────────────────────────────────────────────
+  // NEW CONSTANTS – only these two lines added
+  // ────────────────────────────────────────────────
+  const DISCOUNT_PERCENT = 10;      // 10% off per book
+  const DELIVERY_CHARGE = 99;       // fixed delivery
+
   let cart = [];
 
-  // ────────────────────────────────────────────────
   // Cart Count – update both desktop & mobile badges
-  // ────────────────────────────────────────────────
   function updateCartCount() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -16,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
       desktopBadge.style.display = totalItems > 0 ? 'flex' : 'none';
     }
 
-    // Mobile (if you have separate id for mobile cart badge)
+    // Mobile
     const mobileBadge = document.getElementById('cart-count-mobile');
     if (mobileBadge) {
       mobileBadge.textContent = totalItems;
@@ -24,37 +28,30 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
- // Mobile Hamburger Menu Toggle
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobile-menu');
+  // Mobile Hamburger Menu Toggle
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobile-menu');
 
-if (hamburger && mobileMenu) {
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    mobileMenu.classList.toggle('open');
-    // Optional: prevent body scroll when menu is open
-    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
-  });
-
-  
-  // Close when clicking any link
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      hamburger.classList.remove('active');
-      mobileMenu.classList.remove('open');
-      document.body.style.overflow = '';
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
     });
-  });
-} else {
-  console.error('Hamburger or mobile menu element not found');
-}
 
+    // Close when clicking any link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  } else {
+    console.error('Hamburger or mobile menu element not found');
+  }
 
-
-
-  // ────────────────────────────────────────────────
   // Add to cart
-  // ────────────────────────────────────────────────
   document.querySelectorAll('.add-to-cart').forEach(btn => {
     btn.addEventListener('click', () => {
       const id = btn.dataset.id;
@@ -74,7 +71,7 @@ if (hamburger && mobileMenu) {
   });
 
   // ────────────────────────────────────────────────
-  // Render cart items in modal (with remove button)
+  // Render cart – MODIFIED to show 10% discount per item + delivery
   // ────────────────────────────────────────────────
   function renderCart() {
     const itemsList = document.getElementById('cart-items-list');
@@ -92,11 +89,13 @@ if (hamburger && mobileMenu) {
       return;
     }
 
-    let total = 0;
+    let subtotalAfterDiscount = 0;
 
     cart.forEach(item => {
-      const itemTotal = item.price * item.quantity;
-      total += itemTotal;
+      const originalTotal = item.price * item.quantity;
+      const discountAmount = originalTotal * (DISCOUNT_PERCENT / 100);
+      const discountedTotal = originalTotal - discountAmount;
+      subtotalAfterDiscount += discountedTotal;
 
       const div = document.createElement('div');
       div.style.display = 'flex';
@@ -108,7 +107,11 @@ if (hamburger && mobileMenu) {
       div.innerHTML = `
         <div style="flex:1;">
           <strong>${item.title}</strong><br>
-          ₹${item.price} × ${item.quantity} = ₹${itemTotal}
+          ₹${item.price} × ${item.quantity} = ₹${originalTotal}<br>
+          <small style="color:#27ae60;">
+            10% discount: -₹${Math.round(discountAmount)} 
+            → ₹${Math.round(discountedTotal)}
+          </small>
         </div>
         <button class="remove-item" data-id="${item.id}"
                 style="background:#e74c3c; color:white; border:none; width:32px; height:32px; border-radius:50%; font-size:1.1rem; cursor:pointer;">
@@ -119,14 +122,19 @@ if (hamburger && mobileMenu) {
       itemsList.appendChild(div);
     });
 
-    totalEl.textContent = total;
+    const finalTotal = subtotalAfterDiscount + DELIVERY_CHARGE;
+
+    totalEl.innerHTML = `
+      Subtotal (after 10% discount): ₹${Math.round(subtotalAfterDiscount)}<br>
+      <small>Delivery charges: ₹${DELIVERY_CHARGE}</small><br>
+      <strong style="font-size:1.3rem;">Total to pay: ₹${Math.round(finalTotal)}</strong>
+    `;
+
     clearBtn.style.display = 'block';
   }
 
-  // ────────────────────────────────────────────────
   // Open cart modal
-  // ────────────────────────────────────────────────
-  const cartIcons = ['cart-icon', 'cart-icon-mobile']; // both ids
+  const cartIcons = ['cart-icon', 'cart-icon-mobile'];
 
   cartIcons.forEach(id => {
     const icon = document.getElementById(id);
@@ -139,9 +147,7 @@ if (hamburger && mobileMenu) {
     }
   });
 
-  // ────────────────────────────────────────────────
-  // Remove single item (delegated listener)
-  // ────────────────────────────────────────────────
+  // Remove single item
   document.getElementById('cart-items-list')?.addEventListener('click', (e) => {
     if (e.target.classList.contains('remove-item')) {
       const id = e.target.dataset.id;
@@ -151,9 +157,7 @@ if (hamburger && mobileMenu) {
     }
   });
 
-  // ────────────────────────────────────────────────
   // Clear all
-  // ────────────────────────────────────────────────
   document.getElementById('clear-cart-btn')?.addEventListener('click', () => {
     if (confirm('Clear entire cart?')) {
       cart = [];
@@ -163,7 +167,7 @@ if (hamburger && mobileMenu) {
   });
 
   // ────────────────────────────────────────────────
-  // Send via WhatsApp
+  // Send via WhatsApp – MODIFIED to include discount & delivery
   // ────────────────────────────────────────────────
   document.getElementById('send-whatsapp')?.addEventListener('click', () => {
     if (cart.length === 0) {
@@ -180,14 +184,28 @@ if (hamburger && mobileMenu) {
     }
 
     let message = `Hello! I'd like to place an order:\n\n`;
-    message += `Name: ${name}\nAddress: ${address}\n\nOrder:\n`;
+    message += `Name: ${name}\n`;
+    message += `Address: ${address}\n\n`;
+    message += `Order (after 10% discount):\n`;
+
+    let subtotalAfterDiscount = 0;
 
     cart.forEach(item => {
-      message += `• ${item.title} × ${item.quantity} = ₹${item.price * item.quantity}\n`;
+      const original = item.price * item.quantity;
+      const discount = original * 0.10;
+      const afterDiscount = original - discount;
+      subtotalAfterDiscount += afterDiscount;
+
+      message += `• ${item.title} × ${item.quantity}\n`;
+      message += `  Original: ₹${original} → After 10% off: ₹${Math.round(afterDiscount)}\n`;
     });
 
-    const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
-    message += `\nTotal: ₹${total}\n\nPlease confirm availability and delivery charges. Thank you! 😊`;
+    const finalTotal = subtotalAfterDiscount + DELIVERY_CHARGE;
+
+    message += `\nSubtotal (after discount): ₹${Math.round(subtotalAfterDiscount)}`;
+    message += `\nDelivery charges: ₹${DELIVERY_CHARGE}`;
+    message += `\nTotal to pay: ₹${Math.round(finalTotal)}`;
+    message += `\n\nPlease confirm availability. Thank you! 😊`;
 
     const encoded = encodeURIComponent(message);
     window.open(`https://wa.me/${whatsappNumber}?text=${encoded}`, '_blank');
