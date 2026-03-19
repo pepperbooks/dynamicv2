@@ -1,3 +1,4 @@
+// api/create-order.js
 import Razorpay from 'razorpay';
 
 const razorpay = new Razorpay({
@@ -6,6 +7,15 @@ const razorpay = new Razorpay({
 });
 
 export default async function handler(req, res) {
+  // CORS headers (already added)
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
   }
@@ -14,23 +24,24 @@ export default async function handler(req, res) {
     const { amount, currency = 'INR', receipt = `receipt_${Date.now()}` } = req.body;
 
     if (!amount || amount <= 0) {
-      return res.status(400).json({ error: 'Invalid amount' });
+      return res.status(400).json({ error: 'Invalid or missing amount' });
     }
 
     const order = await razorpay.orders.create({
-      amount: Math.round(amount * 100), // convert to paise
+      amount: Math.round(amount * 100),
       currency,
       receipt,
     });
 
     res.status(200).json({
+      success: true,
       orderId: order.id,
       amount: order.amount,
       currency: order.currency,
-      key: process.env.RAZORPAY_KEY_ID, // optional – send public key too
+      key: process.env.RAZORPAY_KEY_ID,
     });
   } catch (error) {
     console.error('Razorpay order creation error:', error);
-    res.status(500).json({ error: 'Failed to create Razorpay order' });
+    res.status(500).json({ error: error.message || 'Failed to create order' });
   }
 }
